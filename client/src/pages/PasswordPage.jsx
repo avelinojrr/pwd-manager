@@ -1,5 +1,5 @@
+import { PasswordList } from "../components/PasswordList";
+
 export function PasswordPage() {
-    return (
-        <div>PasswordPage</div>
-    )
+    return <PasswordList />;
 }
