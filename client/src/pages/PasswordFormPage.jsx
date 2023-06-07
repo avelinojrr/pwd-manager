@@ -2,6 +2,7 @@ import {useEffect} from 'react';
 import {useForm} from 'react-hook-form';
 import {createPassword, deletePassword, updatePassword, getPassword} from '../api/password.api'
 import {useNavigate, useParams} from 'react-router-dom'
+import {toast} from 'react-hot-toast'
 
 export function PasswordFormPage() {
     const { 
@@ -16,8 +17,24 @@ export function PasswordFormPage() {
     const onSubmit = handleSubmit(async data => {
         if (params.id) {
             await updatePassword(params.id, data);
+            toast.success("Password Update!", {
+                position: "bottom-right",
+                icon: "🔑",
+                style: {
+                    background: "#111723",
+                    color: "#ffff",
+                },
+            });
         }else{
             await createPassword(data);
+            toast.success("New Password Added!", {
+                position: "bottom-right",
+                icon: "🔑",
+                style: {
+                    background: "#111723",
+                    color: "#ffff",
+                },
+            });
         }
         navigate('/password');
     });    
@@ -54,7 +71,15 @@ export function PasswordFormPage() {
                 const accepted = window.confirm('Are you sure?')
                 if (accepted) {
                     await deletePassword(params.id);
-                    navigate('/passwords');
+                    toast.success("Password deleted!", {
+                        position: "bottom-right",
+                        icon: "🗑️",
+                        style: {
+                            background: "#111723",
+                            color: "#ffff",
+                        },
+                    });
+                    navigate('/password');
                 }
             }}>Delete</button>}
         </div>
