@@ -7,6 +7,7 @@ import {Toaster} from "react-hot-toast"
 function App() {
   return (
     <BrowserRouter>
+      <div className="container mx-auto">
       <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/password" />} />
@@ -15,6 +16,7 @@ function App() {
         <Route path="/password/:id" element={<PasswordFormPage />} />
       </Routes>
       <Toaster />
+      </div>
     </BrowserRouter>
   );
 }

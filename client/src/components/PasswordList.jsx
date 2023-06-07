@@ -16,10 +16,11 @@ export function PasswordList() {
     }, []);
 
 
-    return <div>
-        {passwords.map(password => (
-            // eslint-disable-next-line react/jsx-key
+    return (
+        <div className="grid grid-cols-2 gap-3">
+            {passwords.map(password => (
             <PasswordCard key={password.id} password={password}/>
         ))}
-    </div>;
+        </div>
+    );
 }
