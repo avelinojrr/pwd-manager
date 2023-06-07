@@ -14,7 +14,7 @@ export function PasswordCard({password}) {
                 navigate('/password/' + password.id, {state: {password}});
             }} 
         >
-            <h1 className="font-bold no-underline">{password.name}</h1>
+            <h1 className="font-bold uppercase">{password.name}</h1>
             <p className="text-slate-300">{password.username}</p>
             <p className="text-slate-300">{password.password}</p>
             <p className="text-slate-300">{password.url}</p>
