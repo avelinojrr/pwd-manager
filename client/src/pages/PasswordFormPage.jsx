@@ -74,15 +74,25 @@ export function PasswordFormPage() {
                 <textarea rows="3" placeholder="Description" {...register("description", {required: true})}
                 className="bg-zinc-900 p-3 rounded-lg block w-full mb-3"
                 ></textarea>
-                <button className="bg-emerald-800 p-3 rounded-lg block w-full mt-3">
+                <button className="bg-[#569724] p-3 rounded-lg block w-full mt-3 font-medium">
                     Save
                 </button>
-            </form>
-            
+            </form>            
+
             {params.id && (
-                <div className="flex  justify-end">
+
+                <div className="flex justify-between">
+
+                    <div>
+                        <button className="bg-zinc-900 p-3 rounded-lg block w-48 mt-5 hover:bg-zinc-800 font-medium"
+                            onClick={() => navigate('/password')}
+                        >
+                            Back
+                        </button>
+                    </div>
+
                     <button
-                        className="bg-red-600 p-3 rounded-lg block w-48 mt-3"
+                        className="bg-red-600 p-3 rounded-lg block w-48 mt-5 font-medium"
                         onClick={async () => {
                             const accepted = window.confirm('Are you sure?')
                             if (accepted) {
@@ -104,5 +114,6 @@ export function PasswordFormPage() {
                 </div>
             )}
         </div>
+        
     );
 }
